@@ -20,7 +20,7 @@
 
 ## Installation
 
-* Create as folder named 'package' in app rood directry 
+* Create as folder named 'package' in app root directory 
 * Extract this package in that folder 
 * Update autoload in composer 
 ```
