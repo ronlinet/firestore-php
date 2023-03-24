@@ -20,10 +20,22 @@
 
 ## Installation
 
-The recommended way to install is with Composer.
-
-    composer require morrislaptop/firestore-php
-
+* Create as folder named 'package' in app rood directry 
+* Extract this package in that folder 
+* Update autoload in composer 
+```
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Morrislaptop\\Firestore\\":   "packages/open-source/firestore-php/src",
+            "Lcobucci\\JWT\\": "packages/open-source/firestore-php/src/lcobucci/jwt/src/",
+	    }
+    },
+```
 ## Usage
 
 The library aims to replicate the API signature of [Google's PHP API](https://googlecloudplatform.github.io/google-cloud-php/#/docs/cloud-firestore/v0.11.0/firestore/readme).
