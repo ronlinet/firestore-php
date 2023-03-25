@@ -7,7 +7,8 @@
 
 - [x] Get
 - [x] Set
-- [ ] Delete
+- [x] Delete
+- [x] Update
 - [ ] Add
 - [ ] Transactions (beginTransaction, commit, rollback)
 - [ ] Reference value support
@@ -66,3 +67,55 @@ $snap = $user->snapshot();
 echo $snap['name']; // morrislaptop
 
 ```
+Delete content older than 20 hours
+```php
+use Google\Cloud\Firestore\FirestoreClient;
+use Kreait\Firebase\ServiceAccount;
+use Morrislaptop\Firestore\Factory;
+
+        $serviceAccount = ServiceAccount::fromJsonFile( storage_path()  . '/app/google-services.json');
+        $firestore = (new Factory)
+            ->withServiceAccount($serviceAccount)
+            ->createFirestore();
+
+
+        $documents = $firestore->collection('alerts')->documents(['pageSize' => 100]);
+
+        foreach ($documents as $document) {
+
+                $hourdiff = round((time() - strtotime($document['date']))/36000, 1);
+
+            if( $hourdiff  > 20 ) //everything older than 20 hours will be deleted
+            {
+                    $document->reference()->delete();
+                }
+
+            }
+```
+
+Delete by Document id 
+```php
+            $collection     = $this->firestore->collection('collection_name')->document( (int) $document->id );
+            $collection->delete();
+```
+Update
+```php
+$this->firestoreServiceAccount = ServiceAccount::fromJsonFile( storage_path()  . '/app/google-services.json');
+        $this->firestore = (new Factory)->withServiceAccount($this->firestoreServiceAccount)->createFirestore();
+
+ 
+            $collection     = $this->firestore->collection('users')->document( (int) $user->id );
+
+            $email                   = $collection->snapshot()->data()['email'];
+            $fcm_registration_token  = $collection->snapshot()->data()['fcm_registration_token'];
+
+            $collection->set
+            (
+                [
+                    'fcm_registration_token' => $fcm_registration_token,
+                    'email'                 => $email,
+                    'alert_notifications'   => $user->alert_notifications,
+                ]
+            );            
+
+ ```
