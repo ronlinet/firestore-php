@@ -1,4 +1,4 @@
-# Firestore SDK for PHP without gRPC
+# Firestore SDK for PHP without gRPC for PHP 7.4
 
 [![Current version](https://img.shields.io/packagist/v/morrisalptop/firestore-php.svg)](https://packagist.org/packages/morrislaptop/firestore-php)
 [![Build Status](https://img.shields.io/circleci/project/morrislaptop/firestore-php.svg)](https://circleci.com/gh/morrislaptop/firestore-php)
