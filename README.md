@@ -21,8 +21,8 @@
 
 ## Installation
 
-* Create as folder named 'package' in app root directory 
-* Extract this package in that folder 
+* Create a folder named 'package' in app root directory 
+* Extract this package in the "package" folder 
 * Update autoload in composer 
 ```
     "autoload": {
@@ -37,6 +37,7 @@
 	    }
     },
 ```
+Run `compoaer dump-autoload`
 ## Usage
 
 The library aims to replicate the API signature of [Google's PHP API](https://googlecloudplatform.github.io/google-cloud-php/#/docs/cloud-firestore/v0.11.0/firestore/readme).
