@@ -21,8 +21,8 @@
 
 ## Installation
 
-* Create a folder named 'package/opensource' in app root directory 
-* Extract this package in the "package/opensource" folder 
+* Create a folder named 'packages/opensource' in app root directory 
+* Extract this package in the "packages/opensource" folder 
 * Update autoload in composer 
 ```
     "autoload": {
