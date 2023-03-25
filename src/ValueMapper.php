@@ -26,7 +26,6 @@ use Google\Cloud\Core\Timestamp;
 use Google\Cloud\Core\TimeTrait;
 use Google\Cloud\Core\ValidateTrait;
 use Google\Cloud\Firestore\Connection\ConnectionInterface;
-use Google\Protobuf\NullValue;
 use function GuzzleHttp\Psr7\uri_for;
 
 /**
@@ -376,7 +375,7 @@ class ValueMapper
 
             case 'NULL':
                 // @todo encode this in a way such that is compatible with a potential future REST transport.
-                return ['nullValue' => NullValue::NULL_VALUE];
+                return ['nullValue' => 0];
                 break;
 
             // @codeCoverageIgnoreStart
