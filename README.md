@@ -9,7 +9,7 @@
 - [x] Set
 - [x] Delete
 - [x] Update
-- [ ] Add
+- [x] Insert
 - [ ] Transactions (beginTransaction, commit, rollback)
 - [ ] Reference value support
 - [ ] Batch Get
